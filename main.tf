@@ -18,8 +18,6 @@ data "terraform_remote_state" "remote_state" {
     storage_account_name = "flowatfstorageaccount"
     container_name       = "tfstate"
     key                  = "flowa.tfstate"
-    tenant_id            = "${var.tenant_id}"
-    subscription_id      = "${var.subscription_id}"
   }
 }
 
@@ -30,12 +28,4 @@ provider "azurerm" {
 resource "azurerm_resource_group" "thomas-state-backend-demo" {
   name     = "git-hiub-actions-group"
   location = "West Europe"
-}
-
-variable "tenant_id" {
-  type = string
-}
-
-variable "subscription_id" {
-  type = string
 }
