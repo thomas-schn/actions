@@ -7,18 +7,14 @@ terraform {
     }
   }
   required_version = "~> 1.1.3"
-
-}
-
-data "terraform_remote_state" "remote_state" {
-
-  backend = "azurerm"
-  config = {
+  
+  backend = "azurerm" {      
     resource_group_name  = "tfstates"
     storage_account_name = "flowatfstorageaccount"
     container_name       = "tfstate"
     key                  = "flowa.tfstate"
   }
+
 }
 
 provider "azurerm" {
