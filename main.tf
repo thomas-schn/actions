@@ -8,7 +8,7 @@ terraform {
   }
   required_version = "~> 1.1.3"
   
-  backend = "azurerm" {      
+  backend "azurerm" {      
     resource_group_name  = "tfstates"
     storage_account_name = "flowatfstorageaccount"
     container_name       = "tfstate"
