@@ -14,6 +14,8 @@ terraform {
     container_name       = "tfstate"
     key                  = "flowa.tfstate"
     use_msi              = true
+    tenant_id            = var.tenant_id
+    subscription_id      = var.subscription_id
   }
 
 }
@@ -26,4 +28,14 @@ provider "azurerm" {
 resource "azurerm_resource_group" "thomas-state-backend-demo" {
   name     = "git-hiub-actions-group"
   location = "West Europe"
+}
+variable "tenant_id" {
+  type = string
+
+}
+
+variable "subscription_id" {
+
+  type = string
+
 }
