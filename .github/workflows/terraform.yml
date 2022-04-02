@@ -53,7 +53,7 @@ on:
     inputs:
       tags:
         description: 'Test scenario tags'
-        required: false 
+        required: true 
         type: boolean
     
 
