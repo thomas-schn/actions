@@ -8,7 +8,13 @@ terraform {
   }
   required_version = "~> 1.1.3"
 
-  backend "azurerm" {
+}
+
+
+data terraform_remote_state "remote_state" {
+
+  backend =  "azurerm" 
+  config = {
     resource_group_name  = "tfstates"
     storage_account_name = "flowatfstorageaccount"
     container_name       = "tfstate"
@@ -17,9 +23,7 @@ terraform {
     tenant_id            = "${var.tenant_id}"
     subscription_id      = "${var.subscription_id}"
   }
-
 }
-
 
 provider "azurerm" {
   features {}
